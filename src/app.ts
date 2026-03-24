@@ -5,6 +5,7 @@ import {
     consoleLogger,
 } from "./api/v1/middleware/logger";
 import errorHandler from "./api/v1/middleware/errorHandler";
+import setupSwagger from "../src/config/swagger";
 
 /** import the routes **/
 
@@ -26,5 +27,7 @@ app.use(express.json());
 
 
 app.use(errorHandler);
+
+setupSwagger(app);
 
 export default app;
