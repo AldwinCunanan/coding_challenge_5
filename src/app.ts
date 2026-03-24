@@ -23,7 +23,15 @@ app.use(express.json());
 
 /** Update the api endppoints with appropriate routes **/
 
+app.get("/api/v1/health", (req, res) => {
+    res.json({ 
+        status: "ok",
+        uptime: process.uptime(),
+        timestamp: new Date().toISOString(),
+        version: "1.0.0",
+    });
 
+});
 
 
 app.use(errorHandler);
